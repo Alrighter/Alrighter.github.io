@@ -7,6 +7,9 @@ const experience = document.querySelector('.experience');
 const education = document.querySelector('.education');
 const skills = document.querySelector('.skills');
 const petProjects = document.querySelector('.pet_projects');
+const experienceParagraph = document.getElementById("experience_text");
+const educationParagraph = document.getElementById("education_text");
+const petProjectsParagraph = document.getElementById("pet_projects_text");
 
 dots.forEach((dot, index) => {
   let timeout;
@@ -108,3 +111,33 @@ function selectVision() {
 
     document.querySelector('.O23').style.display = 'block';
 }
+
+window.addEventListener("resize", function() {
+    var width = window.innerWidth || document.documentElement.clientWidth;
+    if (width < 570) {
+        experienceParagraph.innerHTML = "Exp";
+        educationParagraph.innerHTML = "Edu";
+        petProjectsParagraph.innerHTML = "Pets";
+    } else {
+        experienceParagraph.innerHTML = "Experience";
+        educationParagraph.innerHTML = "Education";
+        petProjectsParagraph.innerHTML = "Pet Projects";
+    }
+});
+
+function updateText(mediaQuery) {
+    if (mediaQuery.matches) {
+        experienceParagraph.innerHTML = "Exp";
+        educationParagraph.innerHTML = "Edu";
+        petProjectsParagraph.innerHTML = "Pets";
+    } else {
+        experienceParagraph.innerHTML = "Experience";
+        educationParagraph.innerHTML = "Education";
+        petProjectsParagraph.innerHTML = "Pet Projects";
+    }
+  }
+  
+  var mediaQuery = window.matchMedia("(max-width: 400px)");
+  updateText(mediaQuery); // Initial check
+  
+  mediaQuery.addListener(updateText); // Listen for changes
