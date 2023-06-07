@@ -112,21 +112,8 @@ function selectVision() {
     document.querySelector('.O23').style.display = 'block';
 }
 
-window.addEventListener("resize", function() {
-    var width = window.innerWidth || document.documentElement.clientWidth;
-    if (width < 570) {
-        experienceParagraph.innerHTML = "Exp";
-        educationParagraph.innerHTML = "Edu";
-        petProjectsParagraph.innerHTML = "Pets";
-    } else {
-        experienceParagraph.innerHTML = "Experience";
-        educationParagraph.innerHTML = "Education";
-        petProjectsParagraph.innerHTML = "Pet Projects";
-    }
-});
-
 function updateText(mediaQuery) {
-    if (mediaQuery.matches) {
+    if (window.matchMedia("(max-width: 570px)").matches) {
         experienceParagraph.innerHTML = "Exp";
         educationParagraph.innerHTML = "Edu";
         petProjectsParagraph.innerHTML = "Pets";
@@ -136,8 +123,7 @@ function updateText(mediaQuery) {
         petProjectsParagraph.innerHTML = "Pet Projects";
     }
   }
-  
-  var mediaQuery = window.matchMedia("(max-width: 400px)");
-  updateText(mediaQuery); // Initial check
-  
-  mediaQuery.addListener(updateText); // Listen for changes
+
+window.onload = function() {updateText(mediaQuery); };
+var mediaQuery = window.matchMedia("(max-width: 570px)");
+mediaQuery.addListener(updateText);

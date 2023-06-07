@@ -2,7 +2,7 @@
     display: none;
 }
 
-.education.show {
+.experience.show {
     display: block;
     animation: slideIn 0.5s ease-in-out forwards;
 }
@@ -137,8 +137,14 @@
 
 .O21{
     display: none;
+    animation: slideInDate 0.5s ease-in-out forwards;
 }
 
 .O22{
     display: none;
+    animation: slideInDate 0.5s ease-in-out forwards;
+}
+
+.O23{
+    animation: slideInDate 0.5s ease-in-out forwards;
 }
